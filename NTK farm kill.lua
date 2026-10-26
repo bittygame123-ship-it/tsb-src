@@ -365,7 +365,7 @@ do
 		local frame = Instance.new("Frame")
 		frame.Size = UDim2.new(0, 380, 0, 224)
 		frame.Position = UDim2.new(0.5, -190, 0.5, -112)
-		frame.BackgroundColor3 = Color3.fromRGB(240, 248, 255)
+		frame.BackgroundColor3 = Color3.fromRGB(10, 10, 14)
 		frame.BorderSizePixel = 0
 		frame.ClipsDescendants = true
 		frame.Active = true
@@ -385,12 +385,12 @@ do
 		local header = Instance.new("Frame")
 		header.Size = UDim2.new(1, 0, 0, 48)
 		header.Position = UDim2.new(0, 0, 0, 0)
-		header.BackgroundColor3 = Color3.fromRGB(224, 242, 254)
+		header.BackgroundColor3 = Color3.fromRGB(22, 22, 28)
 		header.BorderSizePixel = 0
 		header.Parent = frame
 
 		local headerGradient = Instance.new("UIGradient")
-		headerGradient.Color = ColorSequence.new(Color3.fromRGB(186, 230, 253), Color3.fromRGB(224, 242, 254))
+		headerGradient.Color = ColorSequence.new(Color3.fromRGB(30, 30, 38), Color3.fromRGB(22, 22, 28))
 		headerGradient.Rotation = 0
 		headerGradient.Parent = header
 
@@ -398,7 +398,7 @@ do
 		title.Text = "Project Eternal"
 		title.Font = Enum.Font.GothamBold
 		title.TextSize = 18
-		title.TextColor3 = Color3.fromRGB(2, 132, 199)
+		title.TextColor3 = Color3.fromRGB(225, 225, 235)
 		title.BackgroundTransparency = 1
 		title.Size = UDim2.new(1, -24, 0, 24)
 		title.Position = UDim2.new(0, 16, 0, 8)
@@ -409,7 +409,7 @@ do
 		subtitle.Text = "Nhập key để kích hoạt"
 		subtitle.Font = Enum.Font.Gotham
 		subtitle.TextSize = 11
-		subtitle.TextColor3 = Color3.fromRGB(56, 130, 170)
+		subtitle.TextColor3 = Color3.fromRGB(190, 190, 200)
 		subtitle.BackgroundTransparency = 1
 		subtitle.Size = UDim2.new(1, -24, 0, 14)
 		subtitle.Position = UDim2.new(0, 16, 0, 28)
@@ -421,9 +421,9 @@ do
 		textBox.Text = ""
 		textBox.Font = Enum.Font.Gotham
 		textBox.TextSize = 14
-		textBox.TextColor3 = Color3.fromRGB(12, 74, 110)
-		textBox.PlaceholderColor3 = Color3.fromRGB(125, 170, 200)
-		textBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		textBox.TextColor3 = Color3.fromRGB(240, 240, 245)
+		textBox.PlaceholderColor3 = Color3.fromRGB(130, 130, 145)
+		textBox.BackgroundColor3 = Color3.fromRGB(18, 18, 22)
 		textBox.Size = UDim2.new(1, -32, 0, 40)
 		textBox.Position = UDim2.new(0, 16, 0, 64)
 		textBox.ClearTextOnFocus = false
@@ -434,7 +434,7 @@ do
 		uiCorner2.Parent = textBox
 
 		local tbStroke = Instance.new("UIStroke")
-		tbStroke.Color = Color3.fromRGB(186, 230, 253)
+		tbStroke.Color = Color3.fromRGB(30, 30, 38)
 		tbStroke.Thickness = 1.2
 		tbStroke.Transparency = 0.2
 		tbStroke.Parent = textBox
@@ -448,8 +448,8 @@ do
 		textButton.Text = "Get Key"
 		textButton.Font = Enum.Font.GothamBold
 		textButton.TextSize = 14
-		textButton.TextColor3 = Color3.fromRGB(2, 132, 199)
-		textButton.BackgroundColor3 = Color3.fromRGB(224, 242, 254)
+		textButton.TextColor3 = Color3.fromRGB(225, 225, 235)
+		textButton.BackgroundColor3 = Color3.fromRGB(22, 22, 28)
 		textButton.Size = UDim2.new(0.5, -20, 0, 38)
 		textButton.Position = UDim2.new(0, 16, 0, 116)
 		textButton.AutoButtonColor = false
@@ -469,7 +469,7 @@ do
 		textButton2.Text = "Check"
 		textButton2.Font = Enum.Font.GothamBold
 		textButton2.TextSize = 14
-		textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
+		textButton2.TextColor3 = Color3.fromRGB(18, 18, 22)
 		textButton2.BackgroundColor3 = Color3.fromRGB(56, 189, 248)
 		textButton2.Size = UDim2.new(0.5, -20, 0, 38)
 		textButton2.Position = UDim2.new(0.5, 4, 0, 116)
@@ -481,12 +481,12 @@ do
 		uiCorner4.Parent = textButton2
 
 		local checkGradient = Instance.new("UIGradient")
-		checkGradient.Color = ColorSequence.new(Color3.fromRGB(56, 189, 248), Color3.fromRGB(2, 132, 199))
+		checkGradient.Color = ColorSequence.new(Color3.fromRGB(56, 189, 248), Color3.fromRGB(225, 225, 235))
 		checkGradient.Rotation = 0
 		checkGradient.Parent = textButton2
 
 		local checkStroke = Instance.new("UIStroke")
-		checkStroke.Color = Color3.fromRGB(2, 132, 199)
+		checkStroke.Color = Color3.fromRGB(225, 225, 235)
 		checkStroke.Thickness = 1
 		checkStroke.Transparency = 0.4
 		checkStroke.Parent = textButton2
@@ -504,10 +504,10 @@ do
 		textLabel3.Parent = frame
 
 		textButton.MouseEnter:Connect(function()
-			TweenService:Create(textButton, TweenInfo.new(0.15), { BackgroundColor3 = Color3.fromRGB(207, 235, 253) }):Play()
+			TweenService:Create(textButton, TweenInfo.new(0.15), { BackgroundColor3 = Color3.fromRGB(35, 35, 44) }):Play()
 		end)
 		textButton.MouseLeave:Connect(function()
-			TweenService:Create(textButton, TweenInfo.new(0.15), { BackgroundColor3 = Color3.fromRGB(224, 242, 254) }):Play()
+			TweenService:Create(textButton, TweenInfo.new(0.15), { BackgroundColor3 = Color3.fromRGB(22, 22, 28) }):Play()
 		end)
 		textButton2.MouseEnter:Connect(function()
 			TweenService:Create(textButton2, TweenInfo.new(0.15), { BackgroundColor3 = Color3.fromRGB(125, 211, 252) }):Play()
@@ -679,12 +679,12 @@ tbl = {
 }
 
 local tbl2 = {
-	Background = Color3.fromRGB(240, 248, 255),
-	Panel = Color3.fromRGB(224, 242, 254),
-	PanelAlt = Color3.fromRGB(207, 235, 253),
-	Stroke = Color3.fromRGB(186, 230, 253),
-	TextPrimary = Color3.fromRGB(12, 74, 110),
-	TextDim = Color3.fromRGB(56, 130, 170),
+	Background = Color3.fromRGB(8, 8, 10),
+	Panel = Color3.fromRGB(20, 20, 24),
+	PanelAlt = Color3.fromRGB(30, 30, 36),
+	Stroke = Color3.fromRGB(55, 55, 65),
+	TextPrimary = Color3.fromRGB(245, 245, 250),
+	TextDim = Color3.fromRGB(180, 180, 190),
 	Amber = Color3.fromRGB(245, 158, 11),
 	Teal = Color3.fromRGB(14, 165, 233),
 	Rose = Color3.fromRGB(244, 63, 94),
@@ -883,10 +883,10 @@ do
 	local uiGradient = Instance.new("UIGradient")
 	local colorSequence = ColorSequence.new
 	local tbl3 = {}
-	local v2 = ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 248, 255))
-	local v3 = ColorSequenceKeypoint.new(0.35, Color3.fromRGB(224, 242, 254))
-	local v4 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255))
-	local v5 = ColorSequenceKeypoint.new(0.65, Color3.fromRGB(224, 242, 254))
+	local v2 = ColorSequenceKeypoint.new(0, Color3.fromRGB(12, 12, 15))
+	local v3 = ColorSequenceKeypoint.new(0.35, Color3.fromRGB(24, 24, 30))
+	local v4 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(38, 38, 46))
+	local v5 = ColorSequenceKeypoint.new(0.65, Color3.fromRGB(24, 24, 30))
 	local new = ColorSequenceKeypoint.new
 	local color = Color3.fromRGB
 	tbl3[1] = v2
@@ -895,7 +895,7 @@ do
 	tbl3[4] = v5
 
 	do
-		local values = table.pack(new(1, color(240, 248, 255)))
+		local values = table.pack(new(1, color(12, 12, 15)))
 		table.move(values, 1, values.n, 5, tbl3)
 	end
 
@@ -953,10 +953,10 @@ do
 	hideGuiButton.Name = "HideGuiBtn"
 	hideGuiButton.Size = UDim2.new(0, 26, 0, 26)
 	hideGuiButton.Position = UDim2.new(1, -30, 0, 5)
-	hideGuiButton.BackgroundColor3 = Color3.fromRGB(186, 230, 253)
+	hideGuiButton.BackgroundColor3 = Color3.fromRGB(32, 32, 40)
 	hideGuiButton.Font = Enum.Font.GothamBold
 	hideGuiButton.Text = "-"
-	hideGuiButton.TextColor3 = Color3.fromRGB(2, 132, 199)
+	hideGuiButton.TextColor3 = Color3.fromRGB(240, 240, 245)
 	hideGuiButton.TextSize = 16
 	hideGuiButton.AutoButtonColor = false
 	hideGuiButton.ZIndex = 53
@@ -1327,20 +1327,20 @@ do
 	textButton = Instance.new("TextButton")
 	textButton.Size = UDim2.new(1, 0, 0, 26)
 	textButton.Position = UDim2.new(0, 0, 0, 32)
-	textButton.BackgroundColor3 = Color3.fromRGB(207, 250, 254)
+	textButton.BackgroundColor3 = Color3.fromRGB(28, 28, 35)
 	textButton.BorderSizePixel = 0
 	textButton.Text = "Test Webhook"
 	textButton.Font = Enum.Font.GothamMedium
 	textButton.TextSize = 11
-	textButton.TextColor3 = Color3.fromRGB(8, 145, 178)
+	textButton.TextColor3 = Color3.fromRGB(240, 240, 245)
 	textButton.ZIndex = 52
 	textButton.Parent = frame4
 	fn3(textButton, 6)
-	createUIStroke(textButton, Color3.fromRGB(165, 243, 252), 1, 0.4)
+	createUIStroke(textButton, Color3.fromRGB(55, 55, 65), 1, 0.4)
 end
 
 textButton.MouseEnter:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(165, 243, 252) }, 0.15)
+	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(55, 55, 65) }, 0.15)
 end)
 
 textButton.MouseLeave:Connect(function()
