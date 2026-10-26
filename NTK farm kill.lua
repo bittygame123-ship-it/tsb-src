@@ -406,7 +406,7 @@ do
 		title.Parent = header
 
 		local subtitle = Instance.new("TextLabel")
-		subtitle.Text = "Nhập key để kích hoạt"
+		subtitle.Text = "Enter your key to activate"
 		subtitle.Font = Enum.Font.Gotham
 		subtitle.TextSize = 11
 		subtitle.TextColor3 = Color3.fromRGB(190, 190, 200)
@@ -523,10 +523,10 @@ do
 				if setclipboard then
 					setclipboard(NTK_SERVER)
 					textLabel3.TextColor3 = Color3.fromRGB(22, 163, 74)
-					textLabel3.Text = "Đã copy link lấy key vào clipboard!"
+					textLabel3.Text = "Key link copied to clipboard!"
 				else
 					textLabel3.TextColor3 = Color3.fromRGB(217, 119, 6)
-					textLabel3.Text = "Mở: " .. NTK_SERVER
+					textLabel3.Text = "Open: " .. NTK_SERVER
 				end
 			end)
 		end)
@@ -537,17 +537,17 @@ do
 			local inputKey = textBox.Text
 			if inputKey == "" then
 				textLabel3.TextColor3 = Color3.fromRGB(244, 63, 94)
-				textLabel3.Text = "Vui lòng nhập key."
+				textLabel3.Text = "Please enter a key."
 				return
 			end
 
-			textButton2.Text = "Đang kiểm tra..."
+			textButton2.Text = "Checking..."
 			textButton2.AutoButtonColor = false
 			local res = validateKey(inputKey)
 
 			if res.success then
 				textLabel3.TextColor3 = Color3.fromRGB(22, 163, 74)
-				textLabel3.Text = "Key hợp lệ!"
+				textLabel3.Text = "Key accepted!"
 				task.wait(0.5)
 				screenGui:Destroy()
 				bindableEvent:Fire(inputKey, res)
@@ -555,7 +555,7 @@ do
 				textButton2.Text = "Check"
 				textButton2.AutoButtonColor = true
 				textLabel3.TextColor3 = Color3.fromRGB(244, 63, 94)
-				textLabel3.Text = "Thất bại: " .. tostring(res.reason or "invalid_key")
+				textLabel3.Text = "Failed: " .. tostring(res.reason or "invalid_key")
 			end
 		end)
 
@@ -818,7 +818,7 @@ frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 260, 0, 260)
 frame.Position = UDim2.new(0.5, -130, 0.5, -130)
 frame.BackgroundColor3 = Color3.fromRGB(15, 23, 42)
-frame.BackgroundTransparency = 1
+frame.BackgroundTransparency = 0
 frame.BorderSizePixel = 0
 frame.ZIndex = 100
 frame.Parent = screenGui
@@ -852,7 +852,7 @@ n2 = 490
 
 frame2 = Instance.new("Frame")
 frame2.Name = "Sigma"
-frame2.Size = UDim2.new(0, n, 0, n2)
+frame2.Size = UDim2.new(0, 640, 0, 430)
 frame2.Position = UDim2.new(0.5, 0, 0.5, 0)
 frame2.AnchorPoint = Vector2.new(0.5, 0.5)
 frame2.BackgroundColor3 = tbl2.Background
@@ -932,8 +932,8 @@ do
 	createUIStroke(frame3, tbl2.Stroke, 1, 0.4)
 
 	local imageLabel2 = Instance.new("ImageLabel")
-	imageLabel2.Size = UDim2.new(0, 26, 0, 26)
-	imageLabel2.Position = UDim2.new(0, 5, 0, 5)
+	imageLabel2.Size = UDim2.new(0, 30, 0, 30)
+	imageLabel2.Position = UDim2.new(0, 4, 0, 3)
 	imageLabel2.BackgroundTransparency = 1
 	imageLabel2.Image = FINAL_NTK_LOGO
 	imageLabel2.ZIndex = 52
@@ -941,8 +941,8 @@ do
 	fn3(imageLabel2, 6)
 
 	local textLabel2 = Instance.new("TextLabel")
-	textLabel2.Size = UDim2.new(1, -75, 1, 0)
-	textLabel2.Position = UDim2.new(0, 36, 0, 0)
+	textLabel2.Size = UDim2.new(1, -80, 1, 0)
+	textLabel2.Position = UDim2.new(0, 40, 0, 0)
 	textLabel2.BackgroundTransparency = 1
 	textLabel2.Text = "Project Eternal"
 	textLabel2.Font = Enum.Font.GothamBold
@@ -977,7 +977,7 @@ frame3.BackgroundTransparency = 1
 frame3.BorderSizePixel = 0
 frame3.ScrollBarThickness = 3
 frame3.ScrollBarImageColor3 = Color3.fromRGB(167, 139, 250)
-frame3.CanvasSize = UDim2.new(0, 0, 0, 430)
+frame3.CanvasSize = UDim2.new(0, 0, 0, 390)
 frame3.ZIndex = 51
 frame3.Parent = frame2
 
@@ -988,11 +988,11 @@ textLabel2.BackgroundTransparency = 1
 textLabel2.Text = "Project Eternal"
 textLabel2.Font = Enum.Font.GothamBold
 textLabel2.TextSize = 20
-textLabel2.TextColor3 = Color3.fromRGB(2, 132, 199)
+textLabel2.TextColor3 = Color3.fromRGB(167, 139, 250)
 textLabel2.TextXAlignment = Enum.TextXAlignment.Left
 textLabel2.ZIndex = 52
 textLabel2.Parent = frame3
-createUIGradient(textLabel2, Color3.fromRGB(2, 132, 199), Color3.fromRGB(56, 189, 248), 0)
+createUIGradient(textLabel2, Color3.fromRGB(167, 139, 250), Color3.fromRGB(34, 211, 238), 0)
 
 do
 	local frame4 = Instance.new("Frame")
@@ -1278,7 +1278,7 @@ do
 
 		if arg then
 			textButton2.Text = "Serverhop: ON"
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(187, 247, 208) }, 0.18)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(16, 185, 129) }, 0.18)
 		else
 			textButton2.Text = "Serverhop: OFF"
 			fn2(textButton2, { BackgroundColor3 = tbl2.Panel }, 0.18)
@@ -1333,7 +1333,7 @@ do
 	textButton = Instance.new("TextButton")
 	textButton.Size = UDim2.new(1, 0, 0, 26)
 	textButton.Position = UDim2.new(0, 0, 0, 32)
-	textButton.BackgroundColor3 = Color3.fromRGB(28, 28, 35)
+	textButton.BackgroundColor3 = Color3.fromRGB(45, 35, 75)
 	textButton.BorderSizePixel = 0
 	textButton.Text = "Test Webhook"
 	textButton.Font = Enum.Font.GothamMedium
@@ -1342,15 +1342,15 @@ do
 	textButton.ZIndex = 52
 	textButton.Parent = frame4
 	fn3(textButton, 6)
-	createUIStroke(textButton, Color3.fromRGB(55, 55, 65), 1, 0.4)
+	createUIStroke(textButton, Color3.fromRGB(167, 139, 250), 1, 0)
 end
 
 textButton.MouseEnter:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(55, 55, 65) }, 0.15)
+	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(74, 54, 120) }, 0.15)
 end)
 
 textButton.MouseLeave:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(207, 250, 254) }, 0.15)
+	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(45, 35, 75) }, 0.15)
 end)
 
 local fn4
@@ -1365,17 +1365,17 @@ do
 	local textButton2 = Instance.new("TextButton")
 	textButton2.BackgroundTransparency = 0
 	textButton2.Size = UDim2.new(1, 0, 1, 0)
-	textButton2.BackgroundColor3 = Color3.fromRGB(254, 202, 202)
+	textButton2.BackgroundColor3 = Color3.fromRGB(244, 63, 94)
 	textButton2.BorderSizePixel = 0
 	textButton2.Text = "Stop Farm"
 	textButton2.Font = Enum.Font.GothamBold
 	textButton2.TextSize = 12
-	textButton2.TextColor3 = Color3.fromRGB(185, 28, 28)
+	textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	textButton2.AutoButtonColor = false
 	textButton2.ZIndex = 52
 	textButton2.Parent = frame4
 	fn3(textButton2, 8)
-	createUIStroke(textButton2, Color3.fromRGB(252, 165, 165), 1, 0.3)
+	createUIStroke(textButton2, Color3.fromRGB(251, 113, 133), 1, 0.3)
 
 	fn4 = function(arg)
 		flag3 = arg
@@ -1386,7 +1386,7 @@ do
 			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(254, 202, 202) }, 0.2)
 		else
 			textButton2.Text = "Start Farm"
-			textButton2.TextColor3 = Color3.fromRGB(21, 128, 61)
+			textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
 			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(187, 247, 208) }, 0.2)
 		end
 	end
@@ -1399,7 +1399,7 @@ do
 		if flag3 then
 			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(252, 165, 165) }, 0.15)
 		else
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(134, 239, 172) }, 0.15)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(52, 211, 153) }, 0.15)
 		end
 	end)
 
