@@ -824,19 +824,9 @@ frame.ZIndex = 100
 frame.Parent = screenGui
 fn3(frame, 24)
 
-imageLabel = Instance.new("ImageLabel")
-imageLabel.Size = UDim2.new(0, 120, 0, 120)
-imageLabel.Position = UDim2.new(0.5, -60, 0.5, -80)
-imageLabel.BackgroundTransparency = 1
-imageLabel.Image = FINAL_NTK_LOGO
-imageLabel.ImageTransparency = 0
-imageLabel.ZIndex = 101
-imageLabel.Parent = frame
-fn3(imageLabel, 60)
-
 textLabel = Instance.new("TextLabel")
-textLabel.Size = UDim2.new(1, 0, 0, 40)
-textLabel.Position = UDim2.new(0, 0, 0.5, 55)
+textLabel.Size = UDim2.new(1, -24, 0, 40)
+textLabel.Position = UDim2.new(0, 12, 0.5, -20)
 textLabel.BackgroundTransparency = 1
 textLabel.Text = "Project Eternal"
 textLabel.Font = Enum.Font.GothamBold
@@ -847,8 +837,8 @@ textLabel.ZIndex = 101
 textLabel.Parent = frame
 createUIGradient(textLabel, Color3.fromRGB(56, 189, 248), Color3.fromRGB(240, 249, 255), 0)
 
-n = 460
-n2 = 490
+n = 420
+n2 = 450
 
 frame2 = Instance.new("Frame")
 frame2.Name = "Sigma"
@@ -866,22 +856,6 @@ frame2.Visible = false
 frame2.Parent = screenGui
 fn3(frame2, 16)
 createUIStroke(frame2, tbl2.Stroke, 1.8, 0.1)
-
-local toggleOpenButton = Instance.new("ImageButton")
-	toggleOpenButton.BackgroundTransparency = 0
-toggleOpenButton.Name = "ProjectEternal_OpenToggle"
-toggleOpenButton.Size = UDim2.new(0, 44, 0, 44)
-toggleOpenButton.Position = UDim2.new(0.02, 0, 0.45, 0)
-toggleOpenButton.BackgroundColor3 = tbl2.Panel
-toggleOpenButton.Image = FINAL_NTK_LOGO
-	toggleOpenButton.ScaleType = Enum.ScaleType.Fit
-toggleOpenButton.Visible = false
-toggleOpenButton.Active = true
-toggleOpenButton.Draggable = true
-toggleOpenButton.ZIndex = 150
-toggleOpenButton.Parent = screenGui
-fn3(toggleOpenButton, 12)
-createUIStroke(toggleOpenButton, Color3.fromRGB(35, 35, 50), 1, 0.15)
 
 do
 	local uiGradient = Instance.new("UIGradient")
@@ -920,8 +894,6 @@ do
 	end)
 end
 
-local hideGuiButton
-
 do
 	local frame3 = Instance.new("Frame")
 	frame3.Size = UDim2.new(1, -20, 0, 36)
@@ -932,18 +904,9 @@ do
 	fn3(frame3, 10)
 	createUIStroke(frame3, tbl2.Stroke, 1, 0.4)
 
-	local imageLabel2 = Instance.new("ImageLabel")
-	imageLabel2.Size = UDim2.new(0, 30, 0, 30)
-	imageLabel2.Position = UDim2.new(0, 4, 0, 3)
-	imageLabel2.BackgroundTransparency = 1
-	imageLabel2.Image = FINAL_NTK_LOGO
-	imageLabel2.ZIndex = 52
-	imageLabel2.Parent = frame3
-	fn3(imageLabel2, 6)
-
 	local textLabel2 = Instance.new("TextLabel")
-	textLabel2.Size = UDim2.new(1, -80, 1, 0)
-	textLabel2.Position = UDim2.new(0, 40, 0, 0)
+	textLabel2.Size = UDim2.new(1, -20, 1, 0)
+	textLabel2.Position = UDim2.new(0, 10, 0, 0)
 	textLabel2.BackgroundTransparency = 1
 	textLabel2.Text = "Project Eternal"
 	textLabel2.Font = Enum.Font.GothamBold
@@ -953,20 +916,6 @@ do
 	textLabel2.ZIndex = 52
 	textLabel2.Parent = frame3
 
-	hideGuiButton = Instance.new("TextButton")
-	hideGuiButton.Name = "HideGuiBtn"
-	hideGuiButton.Size = UDim2.new(0, 26, 0, 26)
-	hideGuiButton.Position = UDim2.new(1, -30, 0, 5)
-	hideGuiButton.BackgroundColor3 = Color3.fromRGB(32, 32, 40)
-	hideGuiButton.Font = Enum.Font.GothamBold
-	hideGuiButton.Text = "-"
-	hideGuiButton.TextColor3 = Color3.fromRGB(240, 240, 245)
-	hideGuiButton.TextSize = 16
-	hideGuiButton.AutoButtonColor = false
-	hideGuiButton.ZIndex = 53
-	hideGuiButton.Parent = frame3
-	fn3(hideGuiButton, 8)
-	createUIStroke(hideGuiButton, Color3.fromRGB(125, 211, 252), 1, 0.3)
 end
 
 local frame3
@@ -1480,29 +1429,6 @@ textLabel3.TextScaled = false
 textLabel3.ZIndex = 51
 textLabel3.Parent = frame3
 
-local function HideMainFrame()
-	local tween = TweenService:Create(frame2, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
-		Size = UDim2.new(0, 0, 0, 0),
-	})
-	tween:Play()
-	tween.Completed:Connect(function()
-		frame2.Visible = false
-		toggleOpenButton.Visible = true
-	end)
-end
-
-local function OpenMainFrame()
-	toggleOpenButton.Visible = false
-	frame2.Visible = true
-	local tween = TweenService:Create(frame2, TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
-		Size = UDim2.new(0, n, 0, n2),
-	})
-	tween:Play()
-end
-
-hideGuiButton.MouseButton1Click:Connect(HideMainFrame)
-toggleOpenButton.MouseButton1Click:Connect(OpenMainFrame)
-
 for _, descendant in ipairs(frame2:GetDescendants()) do
 	if descendant:IsA("TextLabel") or descendant:IsA("TextButton") then
 		descendant.TextTransparency = 1
@@ -1512,13 +1438,11 @@ end
 task.spawn(function()
 	fn2(frame, { BackgroundTransparency = 0 }, 0.5)
 	task.wait(0.05)
-	fn2(imageLabel, { ImageTransparency = 0 }, 0.4)
 	task.wait(0.15)
 	fn2(textLabel, { TextTransparency = 0 }, 0.4)
 	task.wait(0.6)
 	task.wait(0.5)
 	local v2 = fn2(frame, { BackgroundTransparency = 1 }, 0.4)
-	fn2(imageLabel, { ImageTransparency = 1 }, 0.3)
 	fn2(textLabel, { TextTransparency = 1 }, 0.3)
 	v2.Completed:Wait()
 	frame.Visible = false
