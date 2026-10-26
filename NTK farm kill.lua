@@ -1,4 +1,4 @@
--- [PHẦN 1: BẢO VỆ MÔI TRƯỜNG THỰC THI & KIỂM TRA TÍNH TOÀN VẸN]
+-- [SECTION 1: EXECUTION ENVIRONMENT PROTECTION AND INTEGRITY CHECKS]
 do
 	local v = pcall
 	local v2 = error
@@ -297,7 +297,7 @@ local RunService
 RunService = game:GetService("RunService")
 local flag2 = false
 
--- [PHẦN 2: HỆ THỐNG XÁC THỰC BẢN QUYỀN NTK KEY SYSTEM (XÁC THỰC TIỀN TỐ NTK)]
+-- [SECTION 2: NTK KEY SYSTEM VALIDATION]
 do
 	local NTK_SERVER = "https://ntk-key.edgeone.dev"
 	local KEY_FOLDER = "NTK_HUB"
@@ -613,7 +613,7 @@ do
 	end
 end
 
--- [PHẦN 3: TỐI ƯU HÓA SIÊU GIẢM LAG (SUPER FIX LAG)]
+-- [SECTION 3: PERFORMANCE OPTIMIZATION]
 task.spawn(function()
 	local tbl = { "ParticleEmitter", "Trail", "Beam", "Fire", "Smoke", "Sparkles", "Explosion", "Sound" }
 
@@ -791,9 +791,9 @@ createUIStroke = function(parent, color, thickness, transparency)
 	return uiStroke
 end
 
--- [PHẦN 4: HỆ THỐNG GIAO DIỆN HÌNH CHỮ NHẬT DỌC, MÀU XANH NHẠT VÀ NÚT ẨN/HIỆN]
--- Project Eternal branding: logo intentionally blank for now.
-local FINAL_NTK_LOGO = "rbxassetid://125234867419328"
+-- [SECTION 4: PROJECT ETERNAL UI AND VISIBILITY TOGGLE]
+-- Project Eternal logo asset.
+local FINAL_NTK_LOGO = "rbxthumb://type=Asset&id=125234867419328&w=420&h=420"
 
 local frame, imageLabel, textLabel, n, n2, frame2
 local screenGui = Instance.new("ScreenGui")
@@ -852,7 +852,7 @@ n2 = 490
 
 frame2 = Instance.new("Frame")
 frame2.Name = "Sigma"
-frame2.Size = UDim2.new(0, 640, 0, 430)
+frame2.Size = UDim2.new(0, 700, 0, 390)
 frame2.Position = UDim2.new(0.5, 0, 0.5, 0)
 frame2.AnchorPoint = Vector2.new(0.5, 0.5)
 frame2.BackgroundColor3 = tbl2.Background
@@ -970,7 +970,7 @@ end
 
 local frame3
 frame3 = Instance.new("ScrollingFrame")
-frame3.Name = "VerticalContentScroll"
+frame3.Name = "ProjectEternalContentScroll"
 frame3.Size = UDim2.new(1, -16, 1, -56)
 frame3.Position = UDim2.new(0, 8, 0, 50)
 frame3.BackgroundTransparency = 1
@@ -996,14 +996,14 @@ createUIGradient(textLabel2, Color3.fromRGB(167, 139, 250), Color3.fromRGB(34, 2
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(1, 0, 0, 115)
+	frame4.Size = UDim2.new(0.46, 0, 0, 80)
 	frame4.Position = UDim2.new(0, 0, 0, 32)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
 	local uiGridLayout = Instance.new("UIGridLayout")
-	uiGridLayout.CellSize = UDim2.new(0.48, 0, 0, 34)
-	uiGridLayout.CellPadding = UDim2.new(0.04, 0, 0, 6)
+	uiGridLayout.CellSize = UDim2.new(0.31, 0, 0, 34)
+	uiGridLayout.CellPadding = UDim2.new(0.02, 0, 0, 6)
 	uiGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiGridLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 	uiGridLayout.StartCorner = Enum.StartCorner.TopLeft
@@ -1114,7 +1114,7 @@ local doServerHop
 do
 	local frame4 = Instance.new("Frame")
 	frame4.Size = UDim2.new(1, 0, 0, 80)
-	frame4.Position = UDim2.new(0, 0, 0, 154)
+	frame4.Position = UDim2.new(0.52, 0, 0, 32)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1296,8 +1296,8 @@ local textButton
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(1, 0, 0, 60)
-	frame4.Position = UDim2.new(0, 0, 0, 242)
+	frame4.Size = UDim2.new(0.46, 0, 0, 60)
+	frame4.Position = UDim2.new(0.52, 0, 0, 122)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1357,8 +1357,8 @@ local fn4
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(1, 0, 0, 32)
-	frame4.Position = UDim2.new(0, 0, 0, 310)
+	frame4.Size = UDim2.new(0.46, 0, 0, 32)
+	frame4.Position = UDim2.new(0, 0, 0, 230)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1423,7 +1423,7 @@ do
 
 	local frame4 = Instance.new("Frame")
 	frame4.Size = UDim2.new(1, 0, 0, 32)
-	frame4.Position = UDim2.new(0, 0, 0, 350)
+	frame4.Position = UDim2.new(0.52, 0, 0, 230)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1574,7 +1574,7 @@ do
 	end
 end
 
--- [PHẦN 5: TẮT DANH SÁCH NGƯỜI CHƠI VÀ BẢO TOÀN BIẾN TOÀN CỤC]
+-- [SECTION 5: PLAYER LIST AND GLOBAL STATE]
 local function fn5()
 	local CoreGui = game:GetService("CoreGui")
 	local StarterGui = game:GetService("StarterGui")
@@ -1647,7 +1647,7 @@ local flag7
 flag7 = false
 local flag8, n8, TeleportService, Players, VirtualInputManager, localPlayer, currentCamera, fn6, fn7
 
--- [PHẦN 6: LOGIC CHIẾN ĐẤU, TỰ ĐỘNG BẤM PHÍM VÀ NÉ ĐÒN]
+-- [SECTION 6: GAMEPLAY INPUT AND DODGE HANDLING]
 do
 	local flag9 = false
 	flag8 = false
@@ -3305,7 +3305,7 @@ do
 	end
 end
 
--- [PHẦN 7: DANH SÁCH MÁY CHỦ VÀ TỰ ĐỘNG CHUYỂN SERVER]
+-- [SECTION 7: SERVER LIST AND SERVER SWITCHING]
 do
 	local tbl4 = {
 		{
@@ -3880,7 +3880,7 @@ deathCounterConns = {}
 deathCounterDebounce = {}
 hookedChars = {}
 
--- [PHẦN 8: XỬ LÝ COUNTER VÀ DESYNC TRÁNH TỬ VONG]
+-- [SECTION 8: COUNTER AND DESYNC HANDLING]
 do
 	local flag9 = false
 
@@ -6109,7 +6109,7 @@ do
 	fn23()
 end
 
--- [PHẦN 9: VÒNG LẶP NỀN ĐỒNG BỘ TRẠNG THÁI VÀ GỬI WEBHOOK]
+-- [SECTION 9: BACKGROUND STATE SYNC AND WEBHOOKS]
 task.spawn(function()
 	task.wait(1)
 
