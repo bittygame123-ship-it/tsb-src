@@ -395,7 +395,7 @@ do
 		headerGradient.Parent = header
 
 		local title = Instance.new("TextLabel")
-		title.Text = "NTK HUB Keysystem"
+		title.Text = "Project Eternal"
 		title.Font = Enum.Font.GothamBold
 		title.TextSize = 18
 		title.TextColor3 = Color3.fromRGB(2, 132, 199)
@@ -790,28 +790,8 @@ createUIStroke = function(parent, color, thickness, transparency)
 end
 
 -- [PHẦN 4: HỆ THỐNG GIAO DIỆN HÌNH CHỮ NHẬT DỌC, MÀU XANH NHẠT VÀ NÚT ẨN/HIỆN]
-local TARGET_LOGO_URL = "https://thumbs.dreamstime.com/b/ntk-logo-ntk-letter-ntk-letter-logo-design-initials-ntk-logo-linked-circle-uppercase-monogram-logo-ntk-typography-397917166.jpg"
-
-local function ResolveLogoAsset(url)
-	local fallback = "rbxassetid://10723374162"
-	local success, customAsset = pcall(function()
-		if writefile and getcustomasset then
-			local fileName = "ntk_hub_brand_logo.png"
-			if not isfile or not isfile(fileName) then
-				local content = game:HttpGet(url)
-				writefile(fileName, content)
-			end
-			return getcustomasset(fileName)
-		end
-		return nil
-	end)
-	if success and customAsset then
-		return customAsset
-	end
-	return fallback
-end
-
-local FINAL_NTK_LOGO = ResolveLogoAsset(TARGET_LOGO_URL)
+-- Project Eternal branding: logo intentionally blank for now.
+local FINAL_NTK_LOGO = ""
 
 local frame, imageLabel, textLabel, n, n2, frame2
 local screenGui = Instance.new("ScreenGui")
@@ -846,7 +826,7 @@ imageLabel = Instance.new("ImageLabel")
 imageLabel.Size = UDim2.new(0, 120, 0, 120)
 imageLabel.Position = UDim2.new(0.5, -60, 0.5, -80)
 imageLabel.BackgroundTransparency = 1
-imageLabel.Image = FINAL_NTK_LOGO
+imageLabel.Image = ""
 imageLabel.ImageTransparency = 1
 imageLabel.ZIndex = 101
 imageLabel.Parent = frame
@@ -856,7 +836,7 @@ textLabel = Instance.new("TextLabel")
 textLabel.Size = UDim2.new(1, 0, 0, 40)
 textLabel.Position = UDim2.new(0, 0, 0.5, 55)
 textLabel.BackgroundTransparency = 1
-textLabel.Text = "NTK HUB"
+textLabel.Text = "Project Eternal"
 textLabel.Font = Enum.Font.GothamBold
 textLabel.TextSize = 24
 textLabel.TextColor3 = Color3.fromRGB(224, 242, 254)
@@ -890,7 +870,7 @@ toggleOpenButton.Name = "NTK_OpenToggle"
 toggleOpenButton.Size = UDim2.new(0, 44, 0, 44)
 toggleOpenButton.Position = UDim2.new(0.02, 0, 0.45, 0)
 toggleOpenButton.BackgroundColor3 = tbl2.Panel
-toggleOpenButton.Image = FINAL_NTK_LOGO
+toggleOpenButton.Image = ""
 toggleOpenButton.Visible = false
 toggleOpenButton.Active = true
 toggleOpenButton.Draggable = true
@@ -952,7 +932,7 @@ do
 	imageLabel2.Size = UDim2.new(0, 26, 0, 26)
 	imageLabel2.Position = UDim2.new(0, 5, 0, 5)
 	imageLabel2.BackgroundTransparency = 1
-	imageLabel2.Image = FINAL_NTK_LOGO
+	imageLabel2.Image = ""
 	imageLabel2.ZIndex = 52
 	imageLabel2.Parent = frame3
 	fn3(imageLabel2, 6)
@@ -961,7 +941,7 @@ do
 	textLabel2.Size = UDim2.new(1, -75, 1, 0)
 	textLabel2.Position = UDim2.new(0, 36, 0, 0)
 	textLabel2.BackgroundTransparency = 1
-	textLabel2.Text = "NTK HUB"
+	textLabel2.Text = "Project Eternal"
 	textLabel2.Font = Enum.Font.GothamBold
 	textLabel2.TextSize = 13
 	textLabel2.TextColor3 = tbl2.TextPrimary
@@ -1002,7 +982,7 @@ local textLabel2 = Instance.new("TextLabel")
 textLabel2.Size = UDim2.new(1, 0, 0, 26)
 textLabel2.Position = UDim2.new(0, 0, 0, 0)
 textLabel2.BackgroundTransparency = 1
-textLabel2.Text = "Suiryu Farm"
+textLabel2.Text = "Project Eternal"
 textLabel2.Font = Enum.Font.GothamBold
 textLabel2.TextSize = 20
 textLabel2.TextColor3 = Color3.fromRGB(2, 132, 199)
@@ -1483,7 +1463,7 @@ local textLabel3 = Instance.new("TextLabel")
 textLabel3.Size = UDim2.new(1, 0, 0, 20)
 textLabel3.Position = UDim2.new(0, 0, 0, 402)
 textLabel3.BackgroundTransparency = 1
-textLabel3.Text = "Credit to : @NTK HUB (Script Owner)"
+textLabel3.Text = "Project Eternal"
 textLabel3.Font = Enum.Font.GothamMedium
 textLabel3.TextSize = 10
 textLabel3.TextColor3 = tbl2.TextDim
@@ -1691,7 +1671,7 @@ do
 		local tbl4 = {
 			embeds = {
 				{
-					title = "NTK HUB Public Farm",
+					title = "Project Eternal",
 					color = 0,
 					description = string.format([[**User:** ||%s||
 **Kills farmed:** %s
