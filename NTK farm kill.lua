@@ -445,6 +445,7 @@ do
 		tbPadding.Parent = textBox
 
 		local textButton = Instance.new("TextButton")
+	textButton.BackgroundTransparency = 0
 		textButton.Text = "Get Key"
 		textButton.Font = Enum.Font.GothamBold
 		textButton.TextSize = 14
@@ -466,6 +467,7 @@ do
 		gkStroke.Parent = textButton
 
 		local textButton2 = Instance.new("TextButton")
+	textButton2.BackgroundTransparency = 0
 		textButton2.Text = "Check"
 		textButton2.Font = Enum.Font.GothamBold
 		textButton2.TextSize = 14
@@ -682,13 +684,13 @@ local tbl2 = {
 	Background = Color3.fromRGB(8, 8, 10),
 	Panel = Color3.fromRGB(20, 20, 24),
 	PanelAlt = Color3.fromRGB(30, 30, 36),
-	Stroke = Color3.fromRGB(55, 55, 65),
+	Stroke = Color3.fromRGB(92, 70, 135),
 	TextPrimary = Color3.fromRGB(245, 245, 250),
 	TextDim = Color3.fromRGB(180, 180, 190),
 	Amber = Color3.fromRGB(245, 158, 11),
-	Teal = Color3.fromRGB(14, 165, 233),
+	Teal = Color3.fromRGB(34, 211, 238),
 	Rose = Color3.fromRGB(244, 63, 94),
-	Lavender = Color3.fromRGB(99, 102, 241),
+	Lavender = Color3.fromRGB(167, 139, 250),
 	FarmOn = Color3.fromRGB(34, 197, 94),
 	FarmOff = Color3.fromRGB(239, 68, 68),
 }
@@ -791,7 +793,7 @@ end
 
 -- [PHẦN 4: HỆ THỐNG GIAO DIỆN HÌNH CHỮ NHẬT DỌC, MÀU XANH NHẠT VÀ NÚT ẨN/HIỆN]
 -- Project Eternal branding: logo intentionally blank for now.
-local FINAL_NTK_LOGO = ""
+local FINAL_NTK_LOGO = "rbxassetid://125234867419328"
 
 local frame, imageLabel, textLabel, n, n2, frame2
 local screenGui = Instance.new("ScreenGui")
@@ -826,8 +828,8 @@ imageLabel = Instance.new("ImageLabel")
 imageLabel.Size = UDim2.new(0, 120, 0, 120)
 imageLabel.Position = UDim2.new(0.5, -60, 0.5, -80)
 imageLabel.BackgroundTransparency = 1
-imageLabel.Image = ""
-imageLabel.ImageTransparency = 1
+imageLabel.Image = FINAL_NTK_LOGO
+imageLabel.ImageTransparency = 0
 imageLabel.ZIndex = 101
 imageLabel.Parent = frame
 fn3(imageLabel, 60)
@@ -866,6 +868,7 @@ fn3(frame2, 16)
 createUIStroke(frame2, tbl2.Stroke, 1.8, 0.1)
 
 local toggleOpenButton = Instance.new("ImageButton")
+	toggleOpenButton.BackgroundTransparency = 0
 toggleOpenButton.Name = "NTK_OpenToggle"
 toggleOpenButton.Size = UDim2.new(0, 44, 0, 44)
 toggleOpenButton.Position = UDim2.new(0.02, 0, 0.45, 0)
@@ -877,7 +880,7 @@ toggleOpenButton.Draggable = true
 toggleOpenButton.ZIndex = 150
 toggleOpenButton.Parent = screenGui
 fn3(toggleOpenButton, 12)
-createUIStroke(toggleOpenButton, Color3.fromRGB(56, 189, 248), 2, 0.2)
+createUIStroke(toggleOpenButton, Color3.fromRGB(167, 139, 250), 2, 0)
 
 do
 	local uiGradient = Instance.new("UIGradient")
@@ -932,7 +935,7 @@ do
 	imageLabel2.Size = UDim2.new(0, 26, 0, 26)
 	imageLabel2.Position = UDim2.new(0, 5, 0, 5)
 	imageLabel2.BackgroundTransparency = 1
-	imageLabel2.Image = ""
+	imageLabel2.Image = FINAL_NTK_LOGO
 	imageLabel2.ZIndex = 52
 	imageLabel2.Parent = frame3
 	fn3(imageLabel2, 6)
@@ -973,7 +976,7 @@ frame3.Position = UDim2.new(0, 8, 0, 50)
 frame3.BackgroundTransparency = 1
 frame3.BorderSizePixel = 0
 frame3.ScrollBarThickness = 3
-frame3.ScrollBarImageColor3 = Color3.fromRGB(125, 211, 252)
+frame3.ScrollBarImageColor3 = Color3.fromRGB(167, 139, 250)
 frame3.CanvasSize = UDim2.new(0, 0, 0, 430)
 frame3.ZIndex = 51
 frame3.Parent = frame2
@@ -1133,6 +1136,7 @@ do
 	textLabel3.ZIndex = 52
 	textLabel3.Parent = frame5
 	local textButton = Instance.new("TextButton")
+	textButton.BackgroundTransparency = 0
 	textButton.Size = UDim2.new(1, 0, 0, 24)
 	textButton.Position = UDim2.new(0, 0, 0, 12)
 	textButton.BackgroundColor3 = tbl2.Panel
@@ -1209,6 +1213,7 @@ do
 
 	for i, v2 in ipairs(tbl) do
 		local textButton2 = Instance.new("TextButton")
+	textButton2.BackgroundTransparency = 0
 		textButton2.Name = v2
 		textButton2.LayoutOrder = i
 		textButton2.Size = UDim2.new(1, 0, 0, 24)
@@ -1247,6 +1252,7 @@ do
 	textLabel6.ZIndex = 52
 	textLabel6.Parent = frame6
 	local textButton2 = Instance.new("TextButton")
+	textButton2.BackgroundTransparency = 0
 	textButton2.Size = UDim2.new(1, 0, 0, 24)
 	textButton2.Position = UDim2.new(0, 0, 0, 12)
 	textButton2.BackgroundColor3 = tbl2.Panel
@@ -1357,6 +1363,7 @@ do
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
 	local textButton2 = Instance.new("TextButton")
+	textButton2.BackgroundTransparency = 0
 	textButton2.Size = UDim2.new(1, 0, 1, 0)
 	textButton2.BackgroundColor3 = Color3.fromRGB(254, 202, 202)
 	textButton2.BorderSizePixel = 0
