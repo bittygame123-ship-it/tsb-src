@@ -322,7 +322,7 @@ do
 	end
 
 	local HWID = getHWID()
-	print("[NTK] HWID:", string.sub(HWID, 1, 16) .. "...")
+	print("[Project Eternal] HWID:", string.sub(HWID, 1, 16) .. "...")
 
 	local function validateKey(key)
 		if not key or type(key) ~= "string" then
@@ -607,7 +607,7 @@ do
 	end
 
 	if not _G.KeyValidated or not keyValidatedSuccess then
-		game.Players.LocalPlayer:Kick("[NTK HUB] Invalid key!")
+		game.Players.LocalPlayer:Kick("[Project Eternal] Invalid key!")
 		task.wait(2)
 		game:Shutdown()
 	end
@@ -793,7 +793,7 @@ end
 
 -- [SECTION 4: PROJECT ETERNAL UI AND VISIBILITY TOGGLE]
 -- Project Eternal logo asset.
-local FINAL_NTK_LOGO = "rbxthumb://type=Asset&id=125234867419328&w=420&h=420"
+local FINAL_NTK_LOGO = "rbxassetid://125234867419328"
 
 local frame, imageLabel, textLabel, n, n2, frame2
 local screenGui = Instance.new("ScreenGui")
@@ -852,7 +852,7 @@ n2 = 490
 
 frame2 = Instance.new("Frame")
 frame2.Name = "Sigma"
-frame2.Size = UDim2.new(0, 700, 0, 390)
+frame2.Size = UDim2.new(0, n, 0, n2)
 frame2.Position = UDim2.new(0.5, 0, 0.5, 0)
 frame2.AnchorPoint = Vector2.new(0.5, 0.5)
 frame2.BackgroundColor3 = tbl2.Background
@@ -869,18 +869,19 @@ createUIStroke(frame2, tbl2.Stroke, 1.8, 0.1)
 
 local toggleOpenButton = Instance.new("ImageButton")
 	toggleOpenButton.BackgroundTransparency = 0
-toggleOpenButton.Name = "NTK_OpenToggle"
+toggleOpenButton.Name = "ProjectEternal_OpenToggle"
 toggleOpenButton.Size = UDim2.new(0, 44, 0, 44)
 toggleOpenButton.Position = UDim2.new(0.02, 0, 0.45, 0)
 toggleOpenButton.BackgroundColor3 = tbl2.Panel
-toggleOpenButton.Image = ""
+toggleOpenButton.Image = FINAL_NTK_LOGO
+	toggleOpenButton.ScaleType = Enum.ScaleType.Fit
 toggleOpenButton.Visible = false
 toggleOpenButton.Active = true
 toggleOpenButton.Draggable = true
 toggleOpenButton.ZIndex = 150
 toggleOpenButton.Parent = screenGui
 fn3(toggleOpenButton, 12)
-createUIStroke(toggleOpenButton, Color3.fromRGB(167, 139, 250), 2, 0)
+createUIStroke(toggleOpenButton, Color3.fromRGB(35, 35, 50), 1, 0.15)
 
 do
 	local uiGradient = Instance.new("UIGradient")
@@ -970,7 +971,7 @@ end
 
 local frame3
 frame3 = Instance.new("ScrollingFrame")
-frame3.Name = "ProjectEternalContentScroll"
+frame3.Name = "VerticalContentScroll"
 frame3.Size = UDim2.new(1, -16, 1, -56)
 frame3.Position = UDim2.new(0, 8, 0, 50)
 frame3.BackgroundTransparency = 1
@@ -996,14 +997,14 @@ createUIGradient(textLabel2, Color3.fromRGB(167, 139, 250), Color3.fromRGB(34, 2
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(0.46, 0, 0, 80)
+	frame4.Size = UDim2.new(1, 0, 0, 115)
 	frame4.Position = UDim2.new(0, 0, 0, 32)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
 	local uiGridLayout = Instance.new("UIGridLayout")
-	uiGridLayout.CellSize = UDim2.new(0.31, 0, 0, 34)
-	uiGridLayout.CellPadding = UDim2.new(0.02, 0, 0, 6)
+	uiGridLayout.CellSize = UDim2.new(0.48, 0, 0, 34)
+	uiGridLayout.CellPadding = UDim2.new(0.04, 0, 0, 6)
 	uiGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiGridLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 	uiGridLayout.StartCorner = Enum.StartCorner.TopLeft
@@ -1114,7 +1115,7 @@ local doServerHop
 do
 	local frame4 = Instance.new("Frame")
 	frame4.Size = UDim2.new(1, 0, 0, 80)
-	frame4.Position = UDim2.new(0.52, 0, 0, 32)
+	frame4.Position = UDim2.new(0, 0, 0, 154)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1296,8 +1297,8 @@ local textButton
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(0.46, 0, 0, 60)
-	frame4.Position = UDim2.new(0.52, 0, 0, 122)
+	frame4.Size = UDim2.new(1, 0, 0, 60)
+	frame4.Position = UDim2.new(0, 0, 0, 242)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1333,7 +1334,7 @@ do
 	textButton = Instance.new("TextButton")
 	textButton.Size = UDim2.new(1, 0, 0, 26)
 	textButton.Position = UDim2.new(0, 0, 0, 32)
-	textButton.BackgroundColor3 = Color3.fromRGB(45, 35, 75)
+	textButton.BackgroundColor3 = Color3.fromRGB(124, 58, 237)
 	textButton.BorderSizePixel = 0
 	textButton.Text = "Test Webhook"
 	textButton.Font = Enum.Font.GothamMedium
@@ -1342,23 +1343,23 @@ do
 	textButton.ZIndex = 52
 	textButton.Parent = frame4
 	fn3(textButton, 6)
-	createUIStroke(textButton, Color3.fromRGB(167, 139, 250), 1, 0)
+	createUIStroke(textButton, Color3.fromRGB(192, 132, 252), 1, 0)
 end
 
 textButton.MouseEnter:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(74, 54, 120) }, 0.15)
+	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(147, 51, 234) }, 0.15)
 end)
 
 textButton.MouseLeave:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(45, 35, 75) }, 0.15)
+	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(124, 58, 237) }, 0.15)
 end)
 
 local fn4
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(0.46, 0, 0, 32)
-	frame4.Position = UDim2.new(0, 0, 0, 230)
+	frame4.Size = UDim2.new(1, 0, 0, 32)
+	frame4.Position = UDim2.new(0, 0, 0, 310)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1423,7 +1424,7 @@ do
 
 	local frame4 = Instance.new("Frame")
 	frame4.Size = UDim2.new(1, 0, 0, 32)
-	frame4.Position = UDim2.new(0.52, 0, 0, 230)
+	frame4.Position = UDim2.new(0, 0, 0, 350)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
