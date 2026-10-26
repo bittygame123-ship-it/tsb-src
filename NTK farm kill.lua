@@ -583,9 +583,9 @@ do
 			flag2 = res.isPremium and true or false
 			_G.KeyValidated = true
 			keyValidatedSuccess = true
-			print("[NTK] Auto-login valid! Premium:", flag2)
+			print("[Project Eternal] Auto-login valid! Premium:", flag2)
 		else
-			print("[NTK] Saved key invalid, removing...")
+			print("[Project Eternal] Saved key invalid, removing...")
 			if delfile then
 				pcall(delfile, KEY_FILE)
 			end
@@ -602,7 +602,7 @@ do
 			end
 			_G.KeyValidated = true
 			keyValidatedSuccess = true
-			print("[NTK] Key validated! Premium:", flag2)
+			print("[Project Eternal] Key validated! Premium:", flag2)
 		end
 	end
 
@@ -662,7 +662,7 @@ task.spawn(function()
 		fn2(v)
 	end
 
-	print("[NTK HUB] Super Fix Lag Activated!")
+	print("[Project Eternal] Super Fix Lag Activated!")
 end)
 
 local tbl
@@ -724,7 +724,7 @@ do
 		if ok and writefile then
 			writefile(str2, result)
 		else
-			warn("[NTK HUB] Failed to encode settings:", result)
+			warn("[Project Eternal] Failed to encode settings:", result)
 		end
 	end
 
@@ -735,12 +735,12 @@ do
 		end
 		local ok, result = pcall(readfile, str2)
 		if not ok then
-			warn("[NTK HUB] Failed to read settings file:", result)
+			warn("[Project Eternal] Failed to read settings file:", result)
 			return
 		end
 		local ok2, result2 = pcall(HttpService.JSONDecode, HttpService, result)
 		if not ok2 or type(result2) ~= "table" then
-			warn("[NTK HUB] Failed to decode settings file, using defaults")
+			warn("[Project Eternal] Failed to decode settings file, using defaults")
 			return
 		end
 
@@ -3289,7 +3289,7 @@ do
 		character:GetAttributeChangedSignal("Ulted"):Connect(function()
 			if localPlayer.Character:GetAttribute("Ulted") then
 				n8 = n8 + 1
-				print("[NTK HUB] Ulted detected, time ulted: " .. tostring(n8))
+				print("[Project Eternal] Ulted detected, time ulted: " .. tostring(n8))
 			end
 		end)
 	end)
@@ -3300,7 +3300,7 @@ do
 		localPlayer.Character:GetAttributeChangedSignal("Ulted"):Connect(function()
 			if localPlayer.Character:GetAttribute("Ulted") then
 				n8 = n8 + 1
-				print("[NTK HUB] Ulted detected, time ulted: " .. tostring(n8))
+				print("[Project Eternal] Ulted detected, time ulted: " .. tostring(n8))
 			end
 		end)
 	end
@@ -3400,12 +3400,12 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 		end
 
 		if flag11 then
-			localPlayer:Kick("[NTK HUB] Kicked by force-hop system.")
+			localPlayer:Kick("[Project Eternal] Kicked by force-hop system.")
 		end
 
 		task.spawn(function()
 			while true do
-				print("[NTK HUB] Hopping ...")
+				print("[Project Eternal] Hopping ...")
 
 				if not flag11 then
 					response = game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("GetServerBrowserData"):InvokeServer(unpack(tbl4))
@@ -3437,7 +3437,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 	end
 
 	textButton2.MouseButton1Click:Connect(function()
-		print("[NTK HUB] Hop server manually...")
+		print("[Project Eternal] Hop server manually...")
 		doHopServer(true)
 	end)
 
@@ -3677,7 +3677,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 				getgenv().PBF_WS = nil
 			end
 
-			print("[NTK HUB] Received hop server command for: " .. name)
+			print("[Project Eternal] Received hop server command for: " .. name)
 			if doServerHop then
 				doHopServer()
 			end
@@ -3695,7 +3695,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 				getgenv().PBF_WS = nil
 			end
 
-			game.Players.LocalPlayer:Kick("[NTK HUB] You got kicked because of duplicate session!")
+			game.Players.LocalPlayer:Kick("[Project Eternal] You got kicked because of duplicate session!")
 			task.wait(2)
 			game:Shutdown()
 		end
@@ -3712,7 +3712,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 				getgenv().PBF_WS = nil
 			end
 
-			game.Players.LocalPlayer:Kick("[NTK HUB] You got kicked by an admin!")
+			game.Players.LocalPlayer:Kick("[Project Eternal] You got kicked by an admin!")
 			task.wait(2)
 			game:Shutdown()
 		end
@@ -3727,12 +3727,12 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 			return false, tostring(result)
 		end
 		flag = true
-		print("[NTK HUB] Server connected")
+		print("[Project Eternal] Server connected")
 		getgenv().PBF_WS.OnMessage:Connect(fn11)
 
 		getgenv().PBF_WS.OnClose:Connect(function()
 			flag = false
-			print("[NTK HUB] Server closed")
+			print("[Project Eternal] Server closed")
 		end)
 
 		return true
@@ -3744,7 +3744,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 
 		while not flag12 do
 			n11 = n11 + 1
-			print("[NTK HUB] Connecting... (attempt " .. n11 .. ")")
+			print("[Project Eternal] Connecting... (attempt " .. n11 .. ")")
 			local flag13, flag14
 
 			if fn12() then
@@ -3753,28 +3753,28 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 				end
 
 				if not flag12 then
-					print("[NTK HUB] Disconnected, reconnecting in " .. n10 .. "s...")
+					print("[Project Eternal] Disconnected, reconnecting in " .. n10 .. "s...")
 					task.wait(2)
 					n12 = 2
 					flag13 = n11 >= n9
 					flag14 = flag13 and not flag
 
 					if flag14 then
-						warn("[NTK HUB] Max retries reached, giving up")
+						warn("[Project Eternal] Max retries reached, giving up")
 						break
 					else
 						continue
 					end
 				end
 			else
-				warn("[NTK HUB] Connect failed (attempt " .. n11 .. "), retrying in " .. n12 .. "s...")
+				warn("[Project Eternal] Connect failed (attempt " .. n11 .. "), retrying in " .. n12 .. "s...")
 				task.wait(n12)
 				n12 = math.min(n12 * 2, 30)
 				flag13 = n11 >= n9
 				flag14 = flag13 and not flag
 
 				if flag14 then
-					warn("[NTK HUB] Max retries reached, giving up")
+					warn("[Project Eternal] Max retries reached, giving up")
 					break
 				else
 					continue
@@ -3841,7 +3841,7 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 		local flag13 = false
 
 		for k, v3 in pairs(arg) do
-			print("[NTK HUB] Clan detected: [" .. k .. "] — " .. #v3 .. " members")
+			print("[Project Eternal] Clan detected: [" .. k .. "] — " .. #v3 .. " members")
 
 			for _, v4 in ipairs(v3) do
 				print("  - " .. v4.player.Name .. " (" .. v4.player.DisplayName .. ") matched via " .. v4.source .. ": " .. v4.original)
@@ -3851,26 +3851,26 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 		end
 
 		if not flag13 then
-			print("[NTK HUB] No clans detected")
+			print("[Project Eternal] No clans detected")
 		else
-			print("[NTK HUB] Clans detected...")
+			print("[Project Eternal] Clans detected...")
 			if doServerHop then
-				print("[NTK HUB] Serverhop is ON, hopping server...")
+				print("[Project Eternal] Serverhop is ON, hopping server...")
 				doHopServer()
 			else
-				print("[NTK HUB] Serverhop is OFF, skip clan hop.")
+				print("[Project Eternal] Serverhop is OFF, skip clan hop.")
 			end
 		end
 	end
 
 	task.spawn(function()
-		print("[NTK HUB] Scanning server...")
+		print("[Project Eternal] Scanning server...")
 		local v3 = fn13()
 		fn14(v3)
 
 		Players2.PlayerAdded:Connect(function()
 			task.wait(1)
-			print("[NTK HUB] New player joined, rescanning...")
+			print("[Project Eternal] New player joined, rescanning...")
 			local v4 = fn13()
 			fn14(v4)
 		end)
@@ -6037,7 +6037,7 @@ do
 			end
 
 			if not flag4 then
-				print("[NTK HUB] Targeting: " .. v2.Name)
+				print("[Project Eternal] Targeting: " .. v2.Name)
 				flag4 = true
 				humanoid2.AutoRotate = false
 			end
