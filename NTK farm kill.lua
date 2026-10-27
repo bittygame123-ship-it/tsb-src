@@ -1616,9 +1616,15 @@ do
 			},
 		}
 
+		local webhookUrl = type(v) == "table" and v.webhookUrl or nil
+		if type(webhookUrl) ~= "string" or not webhookUrl:match("^https?://") then
+			warn("[Project Eternal] Webhook URL is missing or invalid. Set a valid http:// or https:// URL in settings.")
+			return false, "Invalid webhook URL"
+		end
+
 		local ok, result = pcall(function()
 			return request({
-				Url = v.webhookUrl,
+				Url = webhookUrl,
 				Method = "POST",
 				Headers = { ["Content-Type"] = "application/json" },
 				Body = HttpService:JSONEncode(tbl4),
