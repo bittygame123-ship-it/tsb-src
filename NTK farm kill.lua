@@ -908,9 +908,9 @@ do
 	textLabel2.Size = UDim2.new(1, -20, 1, 0)
 	textLabel2.Position = UDim2.new(0, 10, 0, 0)
 	textLabel2.BackgroundTransparency = 1
-	textLabel2.Text = "Project Eternal"
+	textLabel2.Text = "Project Eternal │ Suiryu Farm │ By NoMxcry"
 	textLabel2.Font = Enum.Font.GothamBold
-	textLabel2.TextSize = 13
+	textLabel2.TextSize = 11
 	textLabel2.TextColor3 = tbl2.TextPrimary
 	textLabel2.TextXAlignment = Enum.TextXAlignment.Left
 	textLabel2.ZIndex = 52
@@ -935,9 +935,9 @@ local textLabel2 = Instance.new("TextLabel")
 textLabel2.Size = UDim2.new(1, 0, 0, 26)
 textLabel2.Position = UDim2.new(0, 0, 0, 0)
 textLabel2.BackgroundTransparency = 1
-textLabel2.Text = "Project Eternal"
+textLabel2.Text = "Project Eternal │ Suiryu Farm │ By NoMxcry"
 textLabel2.Font = Enum.Font.GothamBold
-textLabel2.TextSize = 20
+textLabel2.TextSize = 14
 textLabel2.TextColor3 = Color3.fromRGB(167, 139, 250)
 textLabel2.TextXAlignment = Enum.TextXAlignment.Left
 textLabel2.ZIndex = 52
@@ -963,7 +963,7 @@ do
 
 	local tbl5 = {
 		id = "timer",
-		label = "SESSION",
+		label = "TIME FARMED",
 		value = "00:00:00",
 		accent = Color3.fromRGB(245, 158, 11),
 		short = false,
@@ -979,7 +979,7 @@ do
 
 	local tbl7 = {
 		id = "kph",
-		label = "KILLS/HR",
+		label = "KILLS / HOUR",
 		value = "0",
 		accent = Color3.fromRGB(16, 185, 129),
 		short = true,
@@ -987,7 +987,7 @@ do
 
 	local tbl8 = {
 		id = "emotes",
-		label = "EMOTES",
+		label = "EMOTES UNLOCKED",
 		value = "0",
 		accent = Color3.fromRGB(217, 119, 6),
 		short = true,
@@ -1315,7 +1315,7 @@ do
 	local textButton2 = Instance.new("TextButton")
 	textButton2.BackgroundTransparency = 0
 	textButton2.Size = UDim2.new(1, 0, 1, 0)
-	textButton2.BackgroundColor3 = Color3.fromRGB(244, 63, 94)
+	textButton2.BackgroundColor3 = Color3.fromRGB(255, 69, 79)
 	textButton2.BorderSizePixel = 0
 	textButton2.Text = "Stop Farm"
 	textButton2.Font = Enum.Font.GothamBold
@@ -1325,19 +1325,19 @@ do
 	textButton2.ZIndex = 52
 	textButton2.Parent = frame4
 	fn3(textButton2, 8)
-	createUIStroke(textButton2, Color3.fromRGB(251, 113, 133), 1, 0.3)
+	createUIStroke(textButton2, Color3.fromRGB(255, 105, 115), 1, 0.15)
 
 	fn4 = function(arg)
 		flag3 = arg
 
 		if arg then
 			textButton2.Text = "Stop Farm"
-			textButton2.TextColor3 = Color3.fromRGB(185, 28, 28)
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(254, 202, 202) }, 0.2)
+			textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(255, 69, 79) }, 0.2)
 		else
 			textButton2.Text = "Start Farm"
-			textButton2.TextColor3 = Color3.fromRGB(255, 255, 255)
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(187, 247, 208) }, 0.2)
+			textButton2.TextColor3 = Color3.fromRGB(3, 24, 12)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(33, 217, 107) }, 0.2)
 		end
 	end
 
@@ -1347,17 +1347,17 @@ do
 
 	textButton2.MouseEnter:Connect(function()
 		if flag3 then
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(252, 165, 165) }, 0.15)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(255, 91, 101) }, 0.15)
 		else
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(52, 211, 153) }, 0.15)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(24, 190, 89) }, 0.15)
 		end
 	end)
 
 	textButton2.MouseLeave:Connect(function()
 		if flag3 then
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(254, 202, 202) }, 0.15)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(255, 69, 79) }, 0.15)
 		else
-			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(187, 247, 208) }, 0.15)
+			fn2(textButton2, { BackgroundColor3 = Color3.fromRGB(33, 217, 107) }, 0.15)
 		end
 	end)
 end
