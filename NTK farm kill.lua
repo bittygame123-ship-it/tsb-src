@@ -2314,7 +2314,7 @@ do
 
 	pcall(function()
 		local level01 = Enum.QualityLevel.Level01
-		v().Rendering.QualityLevel = level01
+		settings().Rendering.QualityLevel = level01
 	end)
 
 	local flag12 = false
