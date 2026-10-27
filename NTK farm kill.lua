@@ -2496,20 +2496,25 @@ do
 			end
 
 			local function fn23(arg3)
-				local v6 = nil
+				local connection
 
-				return (RunService.Heartbeat:Connect(function()
+				connection = RunService.Heartbeat:Connect(function()
 					if not arg3() then
-						v6:Disconnect()
+						if connection then
+							connection:Disconnect()
+							connection = nil
+						end
 						return
 					end
-					local v7 = fn17(fn16(localPlayer))
 
+					local v7 = fn17(fn16(localPlayer))
 					if v7 then
 						v7.AssemblyLinearVelocity = Vector3.new()
 						v7.AssemblyAngularVelocity = Vector3.new()
 					end
-				end))
+				end)
+
+				return connection
 			end
 
 			local connection3 = nil
