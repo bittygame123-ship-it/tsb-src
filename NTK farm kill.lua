@@ -857,43 +857,6 @@ frame2.Parent = screenGui
 fn3(frame2, 16)
 createUIStroke(frame2, tbl2.Stroke, 1.8, 0.1)
 
-do
-	local uiGradient = Instance.new("UIGradient")
-	local colorSequence = ColorSequence.new
-	local tbl3 = {}
-	local v2 = ColorSequenceKeypoint.new(0, Color3.fromRGB(12, 12, 15))
-	local v3 = ColorSequenceKeypoint.new(0.35, Color3.fromRGB(24, 24, 30))
-	local v4 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(38, 38, 46))
-	local v5 = ColorSequenceKeypoint.new(0.65, Color3.fromRGB(24, 24, 30))
-	local new = ColorSequenceKeypoint.new
-	local color = Color3.fromRGB
-	tbl3[1] = v2
-	tbl3[2] = v3
-	tbl3[3] = v4
-	tbl3[4] = v5
-
-	do
-		local values = table.pack(new(1, color(12, 12, 15)))
-		table.move(values, 1, values.n, 5, tbl3)
-	end
-
-	uiGradient.Color = colorSequence(tbl3)
-	uiGradient.Rotation = 45
-	uiGradient.Offset = Vector2.new(-1, 0)
-	uiGradient.Parent = frame2
-
-	task.spawn(function()
-		local tweenInfo = TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
-
-		while true do
-			local tween = TweenService:Create(uiGradient, tweenInfo, { Offset = Vector2.new(1, 0) })
-			tween:Play()
-			tween.Completed:Wait()
-			uiGradient.Offset = Vector2.new(-1, 0)
-		end
-	end)
-end
-
 
 local frame3
 frame3 = Instance.new("ScrollingFrame")
@@ -1508,53 +1471,8 @@ do
 		leaderstats = localPlayer.leaderstats
 	end
 
-	fn6 = function()
-		local name = localPlayer and localPlayer.Name or "Unknown"
-		local v3 = n3
-		local v4 = savedEmotes
-		local v5 = n6
-		local v6 = n4
-		local text = tbl3.timer and tbl3.timer.Text
+	fn6 = function() return false end
 
-		local tbl4 = {
-			embeds = {
-				{
-					title = "Project Eternal",
-					color = 0,
-					description = string.format([[**User:** ||%s||
-**Kills farmed:** %s
-**Emotes unlocked:** %s
-**Total kills:** %s
-**Kill / hr:** %s
-**Time farmed:** %s]], name, tostring(v3), tostring(v4), tostring(v5), tostring(v6), text),
-					timestamp = DateTime.now():ToIsoDate(),
-				},
-			},
-		}
-
-		local webhookUrl = type(v) == "table" and v.webhookUrl or nil
-		if type(webhookUrl) ~= "string" or not webhookUrl:match("^https?://") then
-			warn("[Project Eternal] Webhook URL is missing or invalid. Set a valid http:// or https:// URL in settings.")
-			return false, "Invalid webhook URL"
-		end
-
-		local ok, result = pcall(function()
-			return request({
-				Url = webhookUrl,
-				Method = "POST",
-				Headers = { ["Content-Type"] = "application/json" },
-				Body = HttpService:JSONEncode(tbl4),
-			})
-		end)
-
-		if not ok then
-			warn("Webhook request failed: " .. tostring(result))
-		end
-
-		return ok, result
-	end
-
-	textButton.MouseButton1Click:Connect(fn6)
 	workspace.FallenPartsDestroyHeight = (0/0)
 
 	workspace:GetPropertyChangedSignal("FallenPartsDestroyHeight"):Connect(function()
