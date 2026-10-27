@@ -634,7 +634,7 @@ task.spawn(function()
 	}
 
 	local function fn(arg)
-		for _, v in tbl, nil, nil do
+		for _, v in ipairs(tbl) do
 			if arg:IsA(v) then
 				return true
 			end
