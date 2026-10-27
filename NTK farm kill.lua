@@ -681,16 +681,16 @@ tbl = {
 }
 
 local tbl2 = {
-	Background = Color3.fromRGB(8, 8, 10),
-	Panel = Color3.fromRGB(20, 20, 24),
-	PanelAlt = Color3.fromRGB(30, 30, 36),
-	Stroke = Color3.fromRGB(92, 70, 135),
-	TextPrimary = Color3.fromRGB(245, 245, 250),
-	TextDim = Color3.fromRGB(180, 180, 190),
-	Amber = Color3.fromRGB(245, 158, 11),
-	Teal = Color3.fromRGB(34, 211, 238),
-	Rose = Color3.fromRGB(244, 63, 94),
-	Lavender = Color3.fromRGB(167, 139, 250),
+	Background = Color3.fromRGB(13, 17, 27),
+	Panel = Color3.fromRGB(23, 30, 45),
+	PanelAlt = Color3.fromRGB(31, 41, 59),
+	Stroke = Color3.fromRGB(59, 130, 246),
+	TextPrimary = Color3.fromRGB(248, 250, 252),
+	TextDim = Color3.fromRGB(156, 173, 196),
+	Amber = Color3.fromRGB(251, 191, 36),
+	Teal = Color3.fromRGB(45, 212, 191),
+	Rose = Color3.fromRGB(251, 113, 133),
+	Lavender = Color3.fromRGB(96, 165, 250),
 	FarmOn = Color3.fromRGB(34, 197, 94),
 	FarmOff = Color3.fromRGB(239, 68, 68),
 }
@@ -715,7 +715,7 @@ do
 		end
 	end
 
-	v = table.clone({ country = tbl[1], webhookUrl = "" })
+	v = table.clone({ country = tbl[1] })
 
 	fn = function()
 		fn2()
@@ -837,8 +837,8 @@ textLabel.ZIndex = 101
 textLabel.Parent = frame
 createUIGradient(textLabel, Color3.fromRGB(56, 189, 248), Color3.fromRGB(240, 249, 255), 0)
 
-n = 420
-n2 = 450
+n = 390
+n2 = 440
 
 frame2 = Instance.new("Frame")
 frame2.Name = "Sigma"
@@ -894,35 +894,12 @@ do
 	end)
 end
 
-do
-	local frame3 = Instance.new("Frame")
-	frame3.Size = UDim2.new(1, -20, 0, 36)
-	frame3.Position = UDim2.new(0, 10, 0, 10)
-	frame3.BackgroundColor3 = tbl2.Panel
-	frame3.ZIndex = 51
-	frame3.Parent = frame2
-	fn3(frame3, 10)
-	createUIStroke(frame3, tbl2.Stroke, 1, 0.4)
-
-	local textLabel2 = Instance.new("TextLabel")
-	textLabel2.Size = UDim2.new(1, -20, 1, 0)
-	textLabel2.Position = UDim2.new(0, 10, 0, 0)
-	textLabel2.BackgroundTransparency = 1
-	textLabel2.Text = "Project Eternal │ Suiryu Farm │ By NoMxcry"
-	textLabel2.Font = Enum.Font.GothamBold
-	textLabel2.TextSize = 11
-	textLabel2.TextColor3 = tbl2.TextPrimary
-	textLabel2.TextXAlignment = Enum.TextXAlignment.Left
-	textLabel2.ZIndex = 52
-	textLabel2.Parent = frame3
-
-end
 
 local frame3
 frame3 = Instance.new("ScrollingFrame")
 frame3.Name = "VerticalContentScroll"
-frame3.Size = UDim2.new(1, -16, 1, -56)
-frame3.Position = UDim2.new(0, 8, 0, 50)
+frame3.Size = UDim2.new(1, -24, 1, -24)
+frame3.Position = UDim2.new(0, 12, 0, 12)
 frame3.BackgroundTransparency = 1
 frame3.BorderSizePixel = 0
 frame3.ScrollBarThickness = 3
@@ -932,28 +909,28 @@ frame3.ZIndex = 51
 frame3.Parent = frame2
 
 local textLabel2 = Instance.new("TextLabel")
-textLabel2.Size = UDim2.new(1, 0, 0, 26)
+textLabel2.Size = UDim2.new(1, 0, 0, 30)
 textLabel2.Position = UDim2.new(0, 0, 0, 0)
 textLabel2.BackgroundTransparency = 1
-textLabel2.Text = "Project Eternal │ Suiryu Farm │ By NoMxcry"
-textLabel2.Font = Enum.Font.GothamBold
-textLabel2.TextSize = 14
-textLabel2.TextColor3 = Color3.fromRGB(167, 139, 250)
+textLabel2.Text = "PROJECT ETERNAL"
+textLabel2.Font = Enum.Font.GothamBlack
+textLabel2.TextSize = 19
+textLabel2.TextColor3 = Color3.fromRGB(96, 165, 250)
 textLabel2.TextXAlignment = Enum.TextXAlignment.Left
 textLabel2.ZIndex = 52
 textLabel2.Parent = frame3
-createUIGradient(textLabel2, Color3.fromRGB(167, 139, 250), Color3.fromRGB(34, 211, 238), 0)
+textLabel2.TextStrokeTransparency = 0.9
 
 do
 	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(1, 0, 0, 115)
-	frame4.Position = UDim2.new(0, 0, 0, 32)
+	frame4.Size = UDim2.new(1, 0, 0, 174)
+	frame4.Position = UDim2.new(0, 0, 0, 38)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
 	local uiGridLayout = Instance.new("UIGridLayout")
-	uiGridLayout.CellSize = UDim2.new(0.48, 0, 0, 34)
-	uiGridLayout.CellPadding = UDim2.new(0.04, 0, 0, 6)
+	uiGridLayout.CellSize = UDim2.new(0.48, 0, 0, 52)
+	uiGridLayout.CellPadding = UDim2.new(0.04, 0, 0, 8)
 	uiGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiGridLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 	uiGridLayout.StartCorner = Enum.StartCorner.TopLeft
@@ -1026,30 +1003,30 @@ do
 		frame6.Parent = frame5
 		fn3(frame6, 2)
 		local textLabel3 = Instance.new("TextLabel")
-		textLabel3.Size = UDim2.new(1, -10, 0, 10)
-		textLabel3.Position = UDim2.new(0, 6, 0, 4)
+		textLabel3.Size = UDim2.new(1, -12, 0, 15)
+		textLabel3.Position = UDim2.new(0, 8, 0, 7)
 		textLabel3.BackgroundTransparency = 1
 		textLabel3.Text = v2.label
 		textLabel3.Font = Enum.Font.Gotham
-		textLabel3.TextSize = 7
+		textLabel3.TextSize = 9
 		textLabel3.TextColor3 = tbl2.TextDim
 		textLabel3.TextXAlignment = Enum.TextXAlignment.Left
 		textLabel3.ZIndex = 53
 		textLabel3.Parent = frame5
 		local textLabel4 = Instance.new("TextLabel")
-		textLabel4.Size = UDim2.new(1, -10, 0, 18)
-		textLabel4.Position = UDim2.new(0, 6, 0, 13)
+		textLabel4.Size = UDim2.new(1, -12, 0, 25)
+		textLabel4.Position = UDim2.new(0, 8, 0, 23)
 		textLabel4.BackgroundTransparency = 1
 		textLabel4.Text = v2.value
 		textLabel4.Font = Enum.Font.GothamBold
-		textLabel4.TextSize = v2.short and 13 or 12
+		textLabel4.TextSize = v2.short and 17 or 15
 		textLabel4.TextColor3 = tbl2.TextPrimary
 		textLabel4.TextXAlignment = Enum.TextXAlignment.Left
 		textLabel4.ZIndex = 53
 		textLabel4.Parent = frame5
 		local frame7 = Instance.new("Frame")
-		frame7.Size = UDim2.new(0, 5, 0, 5)
-		frame7.Position = UDim2.new(1, -9, 0, 5)
+		frame7.Size = UDim2.new(0, 6, 0, 6)
+		frame7.Position = UDim2.new(1, -12, 0, 8)
 		frame7.BackgroundColor3 = v2.accent
 		frame7.BorderSizePixel = 0
 		frame7.ZIndex = 53
@@ -1064,7 +1041,7 @@ local doServerHop
 do
 	local frame4 = Instance.new("Frame")
 	frame4.Size = UDim2.new(1, 0, 0, 80)
-	frame4.Position = UDim2.new(0, 0, 0, 154)
+	frame4.Position = UDim2.new(0, 0, 0, 224)
 	frame4.BackgroundTransparency = 1
 	frame4.ZIndex = 51
 	frame4.Parent = frame3
@@ -1241,67 +1218,6 @@ do
 
 	fn6(doServerHop)
 end
-
-local textButton
-
-do
-	local frame4 = Instance.new("Frame")
-	frame4.Size = UDim2.new(1, 0, 0, 60)
-	frame4.Position = UDim2.new(0, 0, 0, 242)
-	frame4.BackgroundTransparency = 1
-	frame4.ZIndex = 51
-	frame4.Parent = frame3
-
-	local textBox = Instance.new("TextBox")
-	textBox.Size = UDim2.new(1, 0, 0, 26)
-	textBox.Position = UDim2.new(0, 0, 0, 0)
-	textBox.BackgroundColor3 = tbl2.Panel
-	textBox.BorderSizePixel = 0
-	textBox.Font = Enum.Font.Gotham
-	textBox.PlaceholderText = "https://discord.com/api/webhooks/..."
-	textBox.PlaceholderColor3 = tbl2.TextDim
-	textBox.Text = v.webhookUrl or ""
-	textBox.TextColor3 = tbl2.TextPrimary
-	textBox.TextSize = 10
-	textBox.ClearTextOnFocus = false
-	textBox.TextXAlignment = Enum.TextXAlignment.Left
-	textBox.ClipsDescendants = true
-	textBox.ZIndex = 52
-	textBox.Parent = frame4
-	fn3(textBox, 6)
-	createUIStroke(textBox, tbl2.Stroke, 1, 0.4)
-
-	textBox:GetPropertyChangedSignal("Text"):Connect(function()
-		v.webhookUrl = textBox.Text
-		fn()
-	end)
-
-	local uiPadding = Instance.new("UIPadding")
-	uiPadding.PaddingLeft = UDim.new(0, 8)
-	uiPadding.Parent = textBox
-
-	textButton = Instance.new("TextButton")
-	textButton.Size = UDim2.new(1, 0, 0, 26)
-	textButton.Position = UDim2.new(0, 0, 0, 32)
-	textButton.BackgroundColor3 = Color3.fromRGB(124, 58, 237)
-	textButton.BorderSizePixel = 0
-	textButton.Text = "Test Webhook"
-	textButton.Font = Enum.Font.GothamMedium
-	textButton.TextSize = 11
-	textButton.TextColor3 = Color3.fromRGB(240, 240, 245)
-	textButton.ZIndex = 52
-	textButton.Parent = frame4
-	fn3(textButton, 6)
-	createUIStroke(textButton, Color3.fromRGB(192, 132, 252), 1, 0)
-end
-
-textButton.MouseEnter:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(147, 51, 234) }, 0.15)
-end)
-
-textButton.MouseLeave:Connect(function()
-	fn2(textButton, { BackgroundColor3 = Color3.fromRGB(124, 58, 237) }, 0.15)
-end)
 
 local fn4
 
@@ -6045,18 +5961,7 @@ do
 	fn23()
 end
 
--- [SECTION 9: BACKGROUND STATE SYNC AND WEBHOOKS]
-task.spawn(function()
-	task.wait(1)
-
-	while true do
-		if v.webhookUrl then
-			pcall(fn6)
-			task.wait(30)
-		end
-	end
-end)
-
+-- [SECTION 9: BACKGROUND STATE SYNC]
 task.spawn(function()
 	while true do
 		if getgenv().desync then
