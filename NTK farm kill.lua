@@ -3094,8 +3094,6 @@ do
 	}
 
 	local function fn8()
-		local SCRIPT_URL = "https://raw.githubusercontent.com/kietkidlo-hub/main-script-fram-kill-tsb/main/README.md"
-		local scriptName = "NTK_AutoExec.lua"
 		local str = string.format([[
 getgenv().ScriptExecuted = nil
 getgenv().desync = nil
@@ -3103,34 +3101,30 @@ getgenv().TimeFarmed = %d
 getgenv().SavedCarriedKills = %d
 getgenv().SavedEmotes = %d
 getgenv().SavedSessionStart = %d
-getgenv().FarmState = %s
-getgenv().DoServerHop = %s
 
-if not game:IsLoaded() then 
-    game.Loaded:Wait() 
+if not game:IsLoaded() then
+    game.Loaded:Wait()
 end
 
 task.spawn(function()
     task.wait(1.5)
     pcall(function()
-        local content = game:HttpGet("%s")
-        if content and #content > 200 then
-            loadstring(content)()
-            print("[NTK HUB] Tự động thực thi lại script từ GitHub sau khi hop thành công!")
-        end
+        loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
     end)
 end)
-]], getgenv().TimeFarmed or 0, n3 or 0, savedEmotes or 0, savedSessionStart or os.time(), tostring(flag3), tostring(doServerHop), SCRIPT_URL)
+]], getgenv().TimeFarmed or 0, n3 or 0, savedEmotes or 0, savedSessionStart or os.time())
 
 		local q = queue_on_teleport
 			or (syn and syn.queue_on_teleport)
 			or (fluxus and fluxus.queue_on_teleport)
 
 		if q then
-			pcall(q, str)
-			print("[NTK HUB] Đã queue_on_teleport thành công cho lần hop tới.")
+			local ok, err = pcall(q, str)
+			if not ok then
+				warn("[Project Eternal] Failed to queue auto-execute: " .. tostring(err))
+			end
 		else
-			warn("[NTK HUB] Executor không hỗ trợ queue_on_teleport!")
+			warn("[Project Eternal] Executor does not support queue_on_teleport.")
 		end
 	end
 
