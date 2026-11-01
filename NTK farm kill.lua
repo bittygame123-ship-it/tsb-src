@@ -2154,7 +2154,7 @@ do
 
 	pcall(function()
 		local level01 = Enum.QualityLevel.Level01
-		settings().Rendering.QualityLevel = level01
+		v().Rendering.QualityLevel = level01
 	end)
 
 	local flag12 = false
@@ -2336,25 +2336,20 @@ do
 			end
 
 			local function fn23(arg3)
-				local connection
+				local v6 = nil
 
-				connection = RunService.Heartbeat:Connect(function()
+				return (RunService.Heartbeat:Connect(function()
 					if not arg3() then
-						if connection then
-							connection:Disconnect()
-							connection = nil
-						end
+						v6:Disconnect()
 						return
 					end
-
 					local v7 = fn17(fn16(localPlayer))
+
 					if v7 then
 						v7.AssemblyLinearVelocity = Vector3.new()
 						v7.AssemblyAngularVelocity = Vector3.new()
 					end
-				end)
-
-				return connection
+				end))
 			end
 
 			local connection3 = nil
@@ -3058,7 +3053,7 @@ do
 		character:GetAttributeChangedSignal("Ulted"):Connect(function()
 			if localPlayer.Character:GetAttribute("Ulted") then
 				n8 = n8 + 1
-				print("[Project Eternal] Ulted detected, time ulted: " .. tostring(n8))
+				print("[NTK HUB] Ulted detected, time ulted: " .. tostring(n8))
 			end
 		end)
 	end)
@@ -3069,13 +3064,13 @@ do
 		localPlayer.Character:GetAttributeChangedSignal("Ulted"):Connect(function()
 			if localPlayer.Character:GetAttribute("Ulted") then
 				n8 = n8 + 1
-				print("[Project Eternal] Ulted detected, time ulted: " .. tostring(n8))
+				print("[NTK HUB] Ulted detected, time ulted: " .. tostring(n8))
 			end
 		end)
 	end
 end
 
--- [SECTION 7: SERVER LIST AND SERVER SWITCHING]
+-- [PHẦN 7: DANH SÁCH MÁY CHỦ VÀ TỰ ĐỘNG CHUYỂN SERVER]
 do
 	local tbl4 = {
 		{
@@ -3099,17 +3094,50 @@ do
 	}
 
 	local function fn8()
-		local str = string.format([[getgenv().TimeFarmed=%d
-getgenv().SavedCarriedKills=%d
-getgenv().SavedEmotes=%d
-getgenv().SavedSessionStart=%d
-loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
-]], getgenv().TimeFarmed, n3, savedEmotes, savedSessionStart)
+		local SCRIPT_URL = "https://raw.githubusercontent.com/kietkidlo-hub/main-script-fram-kill-tsb/main/README.md"
+		local scriptName = "NTK_AutoExec.lua"
+		local str = string.format([[
+getgenv().ScriptExecuted = nil
+getgenv().desync = nil
+getgenv().TimeFarmed = %d
+getgenv().SavedCarriedKills = %d
+getgenv().SavedEmotes = %d
+getgenv().SavedSessionStart = %d
+getgenv().FarmState = %s
+getgenv().DoServerHop = %s
 
-		pcall(queue_on_teleport, str)
+if not game:IsLoaded() then 
+    game.Loaded:Wait() 
+end
+
+task.spawn(function()
+    task.wait(1.5)
+    pcall(function()
+        local content = game:HttpGet("%s")
+        if content and #content > 200 then
+            loadstring(content)()
+            print("[NTK HUB] Tự động thực thi lại script từ GitHub sau khi hop thành công!")
+        end
+    end)
+end)
+]], getgenv().TimeFarmed or 0, n3 or 0, savedEmotes or 0, savedSessionStart or os.time(), tostring(flag3), tostring(doServerHop), SCRIPT_URL)
+
+		local q = queue_on_teleport
+			or (syn and syn.queue_on_teleport)
+			or (fluxus and fluxus.queue_on_teleport)
+
+		if q then
+			pcall(q, str)
+			print("[NTK HUB] Đã queue_on_teleport thành công cho lần hop tới.")
+		else
+			warn("[NTK HUB] Executor không hỗ trợ queue_on_teleport!")
+		end
 	end
 
 	local function fn9(arg)
+		if not arg or type(arg) ~= "table" or not arg.servers then
+			return nil
+		end
 		local tbl5 = {}
 
 		for _, server in ipairs(arg.servers) do
@@ -3156,7 +3184,10 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 		end
 
 		fn8()
-		local response = game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("GetServerBrowserData"):InvokeServer(unpack(tbl4))
+		local response = nil
+		pcall(function()
+			response = game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("GetServerBrowserData"):InvokeServer(unpack(tbl4))
+		end)
 		task.wait(2)
 		flag = false
 
@@ -3177,17 +3208,29 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 				print("[Project Eternal] Hopping ...")
 
 				if not flag11 then
-					response = game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("GetServerBrowserData"):InvokeServer(unpack(tbl4))
+					pcall(function()
+						response = game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("GetServerBrowserData"):InvokeServer(unpack(tbl4))
+					end)
 				end
 
 				local v3 = fn9(response)
 
 				if v3 then
-					if stafforcehop then
-						pcall(function()
+					print("[Project Eternal] Found server: " .. tostring(v3.id) .. " | Teleporting...")
+
+					local tpOk = pcall(function()
+						local opts = Instance.new("TeleportOptions")
+						opts.ServerInstanceId = v3.id
+						TeleportService:TeleportAsync(game.PlaceId, {localPlayer}, opts)
+					end)
+
+					if not tpOk then
+						tpOk = pcall(function()
 							TeleportService:TeleportToPlaceInstance(game.PlaceId, v3.id, localPlayer)
 						end)
-					else
+					end
+
+					if not tpOk then
 						pcall(function()
 							game:GetService("ReplicatedStorage"):WaitForChild("Ranked"):WaitForChild("CustomServerHandler"):InvokeServer({
 								Action = "JoinServer",
@@ -3198,6 +3241,10 @@ loadstring(game:HttpGet("https://vault.pandauth.com/vss/0cff6a075be18027"))()
 							})
 						end)
 					end
+				else
+					pcall(function()
+						TeleportService:Teleport(game.PlaceId, localPlayer)
+					end)
 				end
 
 				task.wait(3)
